@@ -28,54 +28,74 @@ Write your own steps
 
 ## PROGRAM
 
-### Name: 
-### Register Number:
-
-```python
+# Define Neural Network(Model1)
+```
 class PeopleClassifier(nn.Module):
     def __init__(self, input_size):
         super(PeopleClassifier, self).__init__()
-        #Include your code here
-
-
-
+        self.fc1 = nn.Linear(input_size, 32)
+        self.fc2 = nn.Linear(32, 16)
+        self.fc3 = nn.Linear(16, 8)
+        self.fc4 = nn.Linear(8, 4)
     def forward(self, x):
-        #Include your code here
-        
-
-```
-```python
+        x = F.relu(self.fc1(x))
+        x = F.relu(self.fc2(x))
+        x = F.relu(self.fc3(x))
+        x = self.fc4(x)
+        return x
+```        
 # Initialize the Model, Loss Function, and Optimizer
-
+```
+model = PeopleClassifier(input_size=X_train.shape[1])
+criterion = nn.CrossEntropyLoss()
+optimizer = optim.Adam(model.parameters(),lr=0.001)
+train_model(model, train_loader, criterion, optimizer, epochs=100)
 
 ```
-```python
+# function to train the model
+
+```
+
 def train_model(model, train_loader, criterion, optimizer, epochs):
-    #Include your code here
-```
+    model.train()
+    for epoch in range(epochs):
+        for inputs, labels in train_loader:
+          optimizer.zero_grad()
+          outputs=model(inputs)
+          loss=criterion(outputs, labels)
+          loss.backward()
+          optimizer.step()
+    if (epoch + 1) % 10 == 0:
+        print(f'Epoch [{epoch+1}/{epochs}], Loss: {loss.item():.4f}')
+```        
+
+### Name: SANTHOSH KUMAR A
+### Register Number: 212224230250
+
 
 
 
 ## Dataset Information
 
-Include screenshot of the dataset
-
+![alt text](image-4.png)
 ## OUTPUT
-
 
 
 ### Confusion Matrix
 
-Include confusion matrix here
+![alt text](image.png)
+
+![alt text](image-1.png)
 
 ### Classification Report
 
-Include Classification Report here
-
+![alt text](image-2.png)
 
 ### New Sample Data Prediction
 
-Include your sample input and output here
+![alt text](image-3.png)
 
 ## RESULT
-Include your result here
+
+Thus neural network classification model is developded for the given dataset.
+
