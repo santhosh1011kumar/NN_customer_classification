@@ -18,12 +18,29 @@ Include the neural network model diagram.
 
 ## DESIGN STEPS
 
-### STEP 1:
-Write your own steps
+# STEP 1:
+Import necessary libraries and load the dataset.
 
-### STEP 2:
+# STEP 2:
+Encode categorical variables and normalize numerical features.
 
-### STEP 3:
+# STEP 3:
+Split the dataset into training and testing subsets.
+
+# STEP 4:
+Design a multi-layer neural network with appropriate activation functions.
+
+# STEP 5:
+Train the model using an optimizer and loss function.
+
+# STEP 6:
+Evaluate the model and generate a confusion matrix.
+
+# STEP 7:
+Use the trained model to classify new data samples.
+
+# STEP 8:
+Display the confusion matrix, classification report, and predictions.
 
 
 ## PROGRAM
@@ -77,24 +94,21 @@ def train_model(model, train_loader, criterion, optimizer, epochs):
 
 ## Dataset Information
 
-![alt text](image-4.png)
-## OUTPUT
+![alt text](image-9.png)## OUTPUT
 
 
 ### Confusion Matrix
 
-![alt text](image.png)
+![alt text](image-5.png)
 
-![alt text](image-1.png)
-
+![alt text](image-6.png)
 ### Classification Report
 
-![alt text](image-2.png)
+![alt text](image-7.png)
 
 ### New Sample Data Prediction
 
-![alt text](image-3.png)
-
+![alt text](image-8.png)
 ## RESULT
 
 Thus neural network classification model is developded for the given dataset.
